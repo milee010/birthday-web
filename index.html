@@ -1,0 +1,1434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Urvashi ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Quicksand:wght@400;500;600&display=swap');
+
+:root {
+    --pink: #e8a6b7;
+    --darkpink: #b86f86;
+    --cream: #fff7f1;
+    --green: #788c69;
+    --darkgreen: #53684c;
+    --ink: #654653;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f8e8e6;
+    color: var(--ink);
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .35;
+    background-image: radial-gradient(#c58c9a 0.7px, transparent .7px);
+    background-size: 15px 15px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* BOOT SCREEN */
+
+.screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+.boot-card {
+    width: 100%;
+    max-width: 540px;
+    padding: 35px 25px;
+    background: var(--cream);
+    border: 1px solid #e6bac4;
+    border-radius: 5px;
+    box-shadow: 8px 8px 0 #e6bdc8;
+    text-align: center;
+}
+
+.stamp {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--darkpink);
+}
+
+.boot-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin: 25px 0 5px;
+    color: #ad6d80;
+}
+
+.boot-subtitle {
+    font-style: italic;
+    color: #a7848b;
+    margin-bottom: 30px;
+}
+
+.terminal {
+    text-align: left;
+    background: #40353c;
+    color: #eecbd4;
+    padding: 18px;
+    border-radius: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    line-height: 2;
+    min-height: 145px;
+}
+
+.progress {
+    height: 5px;
+    background: #6e5964;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #f2b4c6;
+    transition: width 2.5s ease;
+}
+
+.main-btn {
+    background: #bd8093;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background: #96586f;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px #b86f8644;
+}
+
+#bootScreen {
+    display: flex;
+}
+
+#giftScreen {
+    display: none;
+}
+
+/* GIFT PAGE */
+
+.gift-wrapper {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+    padding: 35px 15px;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(15px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+.top-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #a36b7d;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 8vw, 65px);
+    font-weight: 500;
+    color: #ad7183;
+    margin: 15px 0 5px;
+}
+
+h1 span {
+    font-style: italic;
+}
+
+.intro {
+    font-size: 13px;
+    color: #9e7782;
+    letter-spacing: 1px;
+}
+
+/* FLOWER BOX */
+
+.flower-card {
+    margin: 30px auto;
+    max-width: 680px;
+    background: #fff9f5;
+    border: 1px solid #e8c4ca;
+    padding: 25px 12px;
+    box-shadow: 5px 6px 0 #e6bdc8;
+    position: relative;
+}
+
+.flower-card::before {
+    content: "✿  FLOWERS FOR YOU  ✿";
+    display: block;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 3px;
+    font-size: 9px;
+    color: #bd8495;
+    margin-bottom: 15px;
+}
+
+.bouquet {
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(7px, 1.55vw, 12px);
+    line-height: 1.25;
+    color: #b9788d;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: 2s ease;
+    text-shadow: 0 0 8px #e6a4b6;
+}
+
+.bouquet.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flower-caption {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #9c7180;
+    margin: 18px 0 0;
+}
+
+/* MESSAGE */
+
+.letter {
+    max-width: 570px;
+    margin: 30px auto;
+    padding: 28px;
+    background: #fff9f5;
+    border: 1px solid #e7c3ca;
+    text-align: left;
+    line-height: 1.9;
+    color: #805d69;
+}
+
+.letter h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: #b77589;
+}
+
+.letter p {
+    font-size: 14px;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px !important;
+    color: #a7687d;
+}
+
+/* SURPRISE */
+
+.surprise {
+    display: none;
+    max-width: 570px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #f4dce2;
+    border: 1px dashed #bd8295;
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+}
+
+.surprise h2 {
+    font-family: 'Playfair Display', serif;
+    color: #a7677e;
+}
+
+.surprise p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.footer {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: #ae8390;
+    letter-spacing: 2px;
+    margin: 35px 0;
+}
+
+/* FALLING PETALS */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    z-index: 5;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 480px) {
+    .boot-title {font-size: 34px;}
+    .flower-card {padding: 20px 5px;}
+    .letter {padding: 20px;}
+}
+
+/* ===== URVASHI'S REALISTIC LILY BOUQUET ===== */
+
+.lily-garden {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: 390px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+/* Individual flower positioning */
+
+.lily {
+    position: absolute;
+    width: 100px;
+    height: 320px;
+    transform-origin: 50% 100%;
+    animation: sway 5s ease-in-out infinite alternate;
+}
+
+.lily-1 { left: 5%; top: 105px; transform: rotate(-12deg); }
+.lily-2 { left: 22%; top: 45px; transform: rotate(-5deg); }
+.lily-3 { left: 40%; top: 5px; transform: rotate(0deg); }
+.lily-4 { left: 59%; top: 48px; transform: rotate(5deg); }
+.lily-5 { left: 76%; top: 110px; transform: rotate(12deg); }
+
+@keyframes sway {
+    from { margin-left: -2px; }
+    to { margin-left: 2px; }
+}
+
+/* Flower heads */
+
+.flower-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 105px;
+    height: 110px;
+    transform: translateX(-50%);
+    animation: bloom 2s ease-out both;
+}
+
+@keyframes bloom {
+    from {
+        scale: .1;
+        opacity: 0;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+/* Six elongated petals */
+
+.petal-shape {
+    position: absolute;
+    width: 31px;
+    height: 79px;
+    left: 50%;
+    top: 12px;
+    border-radius: 70% 70% 45% 45%;
+    transform-origin: 50% 90%;
+    background: linear-gradient(
+        90deg,
+        #e8c6ce,
+        #fffaf8 40%,
+        #f6dce1
+    );
+    box-shadow:
+        inset 2px 0 5px #e7c2ce,
+        1px 2px 5px #c994a522;
+}
+
+/* Outer petals */
+
+.petal-shape:nth-child(1) {
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.petal-shape:nth-child(2) {
+    transform: translateX(-50%) rotate(60deg);
+}
+
+.petal-shape:nth-child(3) {
+    transform: translateX(-50%) rotate(120deg);
+}
+
+.petal-shape:nth-child(4) {
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.petal-shape:nth-child(5) {
+    transform: translateX(-50%) rotate(240deg);
+}
+
+.petal-shape:nth-child(6) {
+    transform: translateX(-50%) rotate(300deg);
+}
+
+/* Pink lilies */
+
+.lily.pink .petal-shape {
+    background: linear-gradient(
+        90deg,
+        #c77c96,
+        #f1b5c7 45%,
+        #ffdee7
+    );
+    box-shadow: inset 2px 0 6px #b46b84;
+}
+
+/* Inner petals */
+
+.petal-shape:nth-child(4),
+.petal-shape:nth-child(5),
+.petal-shape:nth-child(6) {
+    height: 68px;
+    width: 25px;
+    top: 20px;
+}
+
+/* Lily centre */
+
+.flower-center {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    top: 57px;
+    transform: translateX(-50%);
+    background: #e8b85e;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+/* Stamens */
+
+.stamen {
+    position: absolute;
+    height: 28px;
+    width: 3px;
+    background: #d5a04f;
+    left: 50%;
+    top: 35px;
+    transform-origin: bottom;
+    border-radius: 5px;
+    z-index: 4;
+}
+
+.stamen::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #aa7545;
+    border-radius: 50%;
+    top: -5px;
+    left: -3px;
+}
+
+.stamen:nth-of-type(7) {
+    transform: rotate(-40deg);
+}
+
+.stamen:nth-of-type(8) {
+    transform: rotate(40deg);
+}
+
+.stamen:nth-of-type(9) {
+    transform: rotate(0deg);
+}
+
+/* Natural stems */
+
+.stem {
+    position: absolute;
+    width: 4px;
+    height: 260px;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        90deg,
+        #506c48,
+        #829b70,
+        #506c48
+    );
+    border-radius: 10px;
+    z-index: 0;
+}
+
+/* Leaves */
+
+.leaf {
+    position: absolute;
+    width: 55px;
+    height: 20px;
+    top: 155px;
+    background: linear-gradient(
+        135deg,
+        #a4b98a,
+        #526e49
+    );
+    border-radius: 100% 0 100% 0;
+    transform-origin: 0% 50%;
+    z-index: 1;
+}
+
+.leaf.left {
+    left: 0;
+    transform: rotate(15deg);
+}
+
+.leaf.right {
+    left: 45px;
+    top: 190px;
+    transform: scaleX(-1) rotate(15deg);
+}
+
+/* Extra foliage */
+
+.foliage {
+    position: absolute;
+    bottom: 95px;
+    width: 110px;
+    height: 115px;
+    border-left: 3px solid #738e62;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.foliage.left {
+    left: 18%;
+    transform: rotate(-25deg);
+}
+
+.foliage.right {
+    right: 18%;
+    transform: rotate(25deg) scaleX(-1);
+}
+
+/* Wrapping paper */
+
+.wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 310px;
+    height: 165px;
+    background: linear-gradient(
+        110deg,
+        #d99eae,
+        #f5d6da 48%,
+        #c9849a
+    );
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        72% 100%,
+        28% 100%
+    );
+    z-index: 5;
+    filter: drop-shadow(0 4px 5px #9e627555);
+}
+
+.wrapper-fold {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 120px;
+    background: #f9e6e5;
+    clip-path: polygon(0 0, 50% 100%, 100% 0, 75% 100%, 25% 100%);
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* Ribbon */
+
+.ribbon {
+    position: absolute;
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 105px;
+    height: 25px;
+    background: #a95e79;
+    border-radius: 50%;
+    z-index: 8;
+}
+
+.ribbon::before,
+.ribbon::after {
+    content: "";
+    position: absolute;
+    top: -16px;
+    width: 40px;
+    height: 35px;
+    border: 6px solid #bd8195;
+    border-radius: 50% 50% 10% 50%;
+}
+
+.ribbon::before {
+    left: 5px;
+    transform: rotate(25deg);
+}
+
+.ribbon::after {
+    right: 5px;
+    transform: rotate(-25deg);
+}
+
+@media(max-width: 480px) {
+    .lily-garden {
+        transform: scale(.78);
+        transform-origin: top center;
+        margin-bottom: -70px;
+    }
+}
+
+
+/* ===== COLOURED ASCII BOUQUET ===== */
+
+.ascii-stage {
+    width: 100%;
+    max-width: 680px;
+    margin: 25px auto;
+    padding: 22px 5px;
+    background: #211a22;
+    border: 2px solid #d7a1b0;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px #b7799025;
+    overflow: hidden;
+}
+
+.ascii-heading {
+    color: #efc0cf;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+#asciiBouquet {
+    width: 100%;
+    margin: 0;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 4px;
+    line-height: 1.0;
+    font-weight: bold;
+    white-space: pre;
+    overflow-x: auto;
+    text-align: center;
+    font-variant-ligatures: none;
+}
+
+.ascii-caption {
+    color: #e9b7c5;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    margin-top: 18px;
+}
+
+@media(max-width: 480px) {
+    #asciiBouquet {
+        font-size: 2.8px;
+    }
+
+    .ascii-stage {
+        padding: 15px 2px;
+    }
+}
+
+
+/* Birthday playlist */
+.music-box{width:min(560px,92vw);margin:22px auto;padding:20px 18px;background:rgba(255,248,250,.94);border:1px solid #efd4df;border-radius:20px;box-shadow:0 8px 24px rgba(145,83,111,.09);text-align:left;color:#795866}
+.music-title{text-align:center;font-family:'Playfair Display',serif;font-size:24px;color:#a85f7c;margin:0 0 6px}
+.music-note{text-align:center;font-size:12px;color:#a98791;margin:0 0 16px}
+.track{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:11px 0;border-top:1px solid #f0dfe5}
+.track-name{font-weight:600;font-size:14px}.track-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.track button,.pick-btn{border:1px solid #e6bdcd;background:#fff7fa;color:#985b75;border-radius:20px;padding:7px 11px;font-size:11px;cursor:pointer}
+.track button:disabled{opacity:.4;cursor:not-allowed}.track input{display:none}.track-status{grid-column:1/-1;font-size:10px;color:#a98791;min-height:12px}
+.music-now{text-align:center;font-size:11px;color:#a85f7c;margin-top:12px;min-height:15px}
+
+
+/* Bouquet + tiny vintage playlist player */
+.bouquet-music-layout{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;padding:0 8px}
+.bouquet-music-layout .ascii-stage{flex:1 1 68%;min-width:0;margin:12px 0}
+.music-box{flex:0 0 300px;width:300px;max-width:100%;margin:12px 0;padding:15px 13px;background:#fffdfb;border:2px solid #282128;border-radius:13px;box-shadow:4px 5px 0 #e5bdc8;text-align:left;color:#604957;position:relative}
+.player-art{height:56px;width:56px;margin:0 auto 8px;border:1px solid #e7c3ce;border-radius:8px;background:linear-gradient(135deg,#f7dce5,#fff7ed);display:grid;place-items:center;color:#bb7892;font-size:30px}
+.player-kicker{text-align:center;font:9px 'DM Mono',monospace;letter-spacing:2px;color:#b17b8d}
+.music-title{font:italic 19px 'Playfair Display',serif;text-align:center;color:#9d6179;margin:4px 0}
+.music-now{text-align:center;font-size:10px;color:#a98791;margin:0 0 9px;min-height:14px}
+.player-screen{border-top:1px solid #2a2529;border-bottom:1px solid #2a2529;padding:9px 2px 8px}
+.player-track-title{text-align:center;font-size:12px;font-weight:700;color:#382c33}
+.player-track-artist{text-align:center;font-size:9px;color:#987b86;margin-top:3px}
+.player-progress{height:3px;background:#ead7de;margin:12px 5px 8px;border-radius:9px;overflow:hidden}.player-progress span{display:block;width:18%;height:100%;background:#ad6c86}
+.player-controls{display:flex;align-items:center;justify-content:center;gap:20px}
+.player-controls button{border:0;background:transparent;color:#342a30;font-size:18px;cursor:pointer;padding:3px 7px}
+.player-controls .player-play{font-size:20px;border:1.5px solid #342a30;border-radius:7px;min-width:38px}
+.playlist-options{display:grid;gap:4px;margin-top:10px}
+.song-choice{border:0;border-radius:7px;background:#fff7fa;color:#765665;text-align:left;padding:7px 8px;font-size:10px;cursor:pointer}
+.song-choice span{font:9px 'DM Mono',monospace;color:#bf879b;margin-right:8px}
+.song-choice.active{background:#f2dce5;color:#75475b;box-shadow:inset 3px 0 #ad6c86}
+.player-hint{text-align:center;font-size:8px;color:#ad8e99;margin-top:9px}
+.player-video-wrap{width:100%;min-width:280px;margin-top:10px;border:1px solid #e8cbd5;border-radius:8px;overflow:hidden;background:#211b20}
+.player-video-wrap iframe{display:block;width:100%;height:152px;border:0;border-radius:8px}
+.song-choice{line-height:1.35}
+@media(max-width:760px){.bouquet-music-layout{flex-direction:column;gap:12px}.bouquet-music-layout .ascii-stage{width:100%;flex:auto}.music-box{width:min(340px,94%);flex:auto;margin:4px auto 15px}}
+
+</style>
+</head>
+
+<body>
+
+<!-- BOOT SCREEN -->
+
+<section class="screen" id="bootScreen">
+
+<div class="boot-card">
+
+<div class="stamp">✿ THE LITTLE FLOWER PROJECT ✿</div>
+
+<div class="boot-title">LILIES.exe</div>
+
+<div class="boot-subtitle">
+A little digital garden, made just for you.
+</div>
+
+<div class="terminal" id="terminal">
+> Initializing birthday.exe...<br>
+> Locating recipient: Urvashi ♡<br>
+> Selecting flowers...<br>
+> Compiling happiness...<br>
+> Checking friendship.exe... SUCCESS<br>
+> Warning: Too much awesomeness detected.
+<div class="progress">
+    <div class="progress-fill" id="progress"></div>
+</div>
+</div>
+
+<button class="main-btn" id="openBtn" onclick="openGift()">
+UNWRAP YOUR FLOWERS ♡
+</button>
+
+<p style="font-size:10px;color:#a98791;margin-top:25px;">
+NO INSTALLATION REQUIRED. JUST A LITTLE LOVE.
+</p>
+
+</div>
+</section>
+
+
+<!-- BIRTHDAY GIFT -->
+
+<section class="screen" id="giftScreen">
+
+<div class="gift-wrapper">
+
+<div class="top-label">✿ A SPECIAL DELIVERY ✿</div>
+
+<h1>Happy Birthday,<br><span>Urvashi!</span></h1>
+
+<p class="intro">
+A bouquet that doesn't need water, sunlight or maintenance.
+</p>
+
+<div class="flower-card">
+
+
+
+
+<div class="bouquet-music-layout">
+<div class="ascii-stage">
+    <div class="ascii-heading">✿ A BOUQUET FOR URVASHI ✿</div>
+    <pre id="asciiBouquet">Your bouquet is waiting to bloom...
+Click “UNWRAP YOUR FLOWERS” to watch it open ♡</pre>
+    <div class="ascii-caption">
+        Every flower was compiled with love ♡
+    </div>
+</div>
+
+<canvas id="flowerCanvas" width="560" height="640"
+        style="display:none;"></canvas>
+
+<!-- MINI MUSIC PLAYER BESIDE THE BOUQUET -->
+<aside class="music-box" id="musicBox">
+  <div class="player-art">♫</div>
+  <div class="player-kicker">URVASHI'S MIXTAPE</div>
+  <h2 class="music-title">Pick a song ♡</h2>
+  <div class="music-now" id="musicNow">Choose your soundtrack</div>
+  <div class="player-screen" id="playerScreen">
+    <div class="player-track-title" id="playerTrackTitle">Suno Aisha</div>
+    <div class="player-track-artist" id="playerTrackArtist">Aisha · soundtrack</div>
+    <div class="player-progress"><span></span></div>
+    <div class="player-controls">
+      <button type="button" id="prevSong" aria-label="Previous song">|◀</button>
+      <button type="button" id="toggleSong" class="player-play" aria-label="Go to Spotify player">♫</button>
+      <button type="button" id="nextSong" aria-label="Next song">▶|</button>
+    </div>
+  </div>
+  <div class="playlist-options">
+    <button type="button" class="song-choice active" data-song="0"><span>01</span> Suno Aisha</button>
+    <button type="button" class="song-choice" data-song="1"><span>02</span> Dilruba Dilnasheen</button>
+    <button type="button" class="song-choice" data-song="2"><span>03</span> Bebo</button>
+    <button type="button" class="song-choice" data-song="3"><span>04</span> Alfaaz</button>
+  </div>
+  <div class="player-hint">Choose a track, then press play in Spotify ♡</div>
+  <div class="player-video-wrap">
+    <iframe id="spotifyPlayer" title="Urvashi birthday Spotify player" src="https://open.spotify.com/embed/track/0MjL7YQ02qH7nxfayhbmfp?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</aside>
+</div>
+
+<!-- LETTER -->
+
+<div class="letter">
+
+<h2>Dear Urvashi, ♡</h2>
+
+<p>
+Happy Birthday to my favourite human, my oldest friend, and my forever partner in crime!
+</p>
+
+<p>
+We've been friends since playgroup at Athena. And honestly, after all these years,
+it is still impressive that we can barely go more than an hour without fighting
+or getting on each other's nerves. 😂 Somehow, no matter how dramatically we
+claim we cannot stand each other, we always find our way back.
+</p>
+
+<p>
+And look at us now — we've grown up, shared secrets, sneaky smokes and drinks,
+so many laughs, and memories that younger us probably wouldn't believe.
+We've had our phases, our arguments, and our ridiculous moments, but I'm
+really, really glad that through all of it, we've stayed friends.
+</p>
+
+<p>
+I hope we get to keep growing up together, collecting stories, laughing at
+things nobody else understands, and being there for each other through every
+version of life. I hope this friendship stays with us for a very, very long time.
+</p>
+
+<p>
+You know how my mum has Pooja aunty? I hope that someday, years from now,
+I'll still have you just like that. My mum has her Pooja aunty, and I have you.
+That thought makes me really happy. Here's to us, and to many more years of
+being each other's favourite headache. ♡
+</p>
+
+<p class="signature">
+Love you always, you absolute menace. Happy Birthday! ♡
+</p>
+
+</div>
+
+
+<button class="main-btn" onclick="showSecret()">
+PSSST... ONE LAST THING
+</button>
+
+<div class="surprise" id="secret">
+
+<h2>CLASSIFIED FRIENDSHIP DATA ♡</h2>
+
+<p>
+Friendship Status: PERMANENTLY INSTALLED ✓
+</p>
+
+<p>
+Playgroup-to-Partner-in-Crime History: UNMATCHED ♡
+</p>
+
+<p>
+Drama Tolerance: UNLIMITED<br>Playgroup Friendship: LIFETIME SUBSCRIPTION<br>
+Laughing Capacity: UNDEFINED<br>
+Memories Created: INFINITE<br>
+Friendship Expiry Date: NEVER
+</p>
+
+<p>
+SYSTEM MESSAGE:
+<br>
+You are stuck with me. No refunds. No uninstall button.
+</p>
+
+<p style="font-family:'Playfair Display',serif;font-style:italic;">
+P.S. Maybe we should make more memories
+and fewer questionable decisions this year. ♡
+</p>
+
+</div>
+
+<div class="footer">
+MADE WITH LOVE, HTML, CSS & QUESTIONABLE SLEEP SCHEDULES
+<br><br>
+© YOUR FAVOURITE ENGINEER — 2026
+</div>
+
+</div>
+</section>
+
+
+<script>
+// Spotify birthday mixtape: each selection loads inside the embedded player.
+const birthdaySongs = [
+  { title: 'Suno Aisha', artist: 'Aisha · soundtrack', id: '0MjL7YQ02qH7nxfayhbmfp' },
+  { title: 'Dilruba Dilnasheen', artist: 'Rito Riba · Siddhant Kaushal', id: '3ZhV3K4tmdYofyLKPS5KqF' },
+  { title: 'Bebo', artist: 'Kambakkht Ishq · Alisha Chinai', id: '4J1ngpieZ2SrqbDQy1lJHM' },
+  { title: 'Alfaaz', artist: 'Hamza Malik & Zain Zohaib', id: '0tW2gwaRzFQQrgr2UCO56G' }
+];
+let selectedSong = 0;
+const spotifyPlayer = document.getElementById('spotifyPlayer');
+function selectBirthdaySong(index) {
+  selectedSong = (index + birthdaySongs.length) % birthdaySongs.length;
+  const song = birthdaySongs[selectedSong];
+  document.getElementById('playerTrackTitle').textContent = song.title;
+  document.getElementById('playerTrackArtist').textContent = song.artist;
+  document.getElementById('musicNow').textContent = 'Selected: ' + song.title + ' ♡';
+  document.querySelectorAll('.song-choice').forEach((button, i) => button.classList.toggle('active', i === selectedSong));
+  spotifyPlayer.src = 'https://open.spotify.com/embed/track/' + song.id + '?utm_source=generator';
+}
+document.querySelectorAll('.song-choice').forEach(button => button.addEventListener('click', () => selectBirthdaySong(Number(button.dataset.song))));
+document.getElementById('prevSong').addEventListener('click', () => selectBirthdaySong(selectedSong - 1));
+document.getElementById('nextSong').addEventListener('click', () => selectBirthdaySong(selectedSong + 1));
+// Spotify provides its own play, pause, and volume controls inside the embed.
+document.getElementById('toggleSong').addEventListener('click', () => {
+  document.getElementById('musicNow').textContent = 'Use the Spotify play button below ♡';
+  spotifyPlayer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+selectBirthdaySong(0);
+
+// Loading bar
+window.onload = function () {
+    setTimeout(() => {
+        document.getElementById("progress").style.width = "100%";
+    }, 200);
+};
+
+// Open the birthday gift
+function openGift() {
+    document.getElementById("bootScreen").style.display = "none";
+    document.getElementById("giftScreen").style.display = "flex";
+
+    animateBouquet();
+    createPetals();
+}
+
+// Reveal hidden birthday surprise
+function showSecret() {
+    const secret = document.getElementById("secret");
+    secret.style.display = "block";
+    secret.scrollIntoView({ behavior: "smooth", block: "center" });
+    createPetals();
+}
+
+// Floating flower petals
+function createPetals() {
+    const flowers = ["✿", "❀", "♡", "✾", "❁"];
+    let count = 0;
+
+    const interval = setInterval(() => {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.color = ["#d98da7", "#e7b1bf", "#c78c9d"][
+            Math.floor(Math.random() * 3)
+        ];
+        petal.style.fontSize = (12 + Math.random() * 18) + "px";
+        petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 10000);
+
+        count++;
+        if (count >= 35) clearInterval(interval);
+    }, 350);
+}
+
+// Smooth easing for each flower's opening
+function easeOutCubic(value) {
+    const t = Math.max(0, Math.min(1, value));
+    return 1 - Math.pow(1 - t, 3);
+}
+
+// Oriental lily: six long, gently recurved petals and prominent stamens.
+function drawLily(ctx, x, y, scale, pink, rotation, bloom, time, phase) {
+    const opening = Math.max(0, Math.min(1, bloom));
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotation + Math.sin(time * 1.25 + phase) * 0.025);
+    ctx.scale(scale, scale);
+
+    const base = pink ? "#d77f9e" : "#fff8f5";
+    const light = pink ? "#ffdce7" : "#ffffff";
+    const shade = pink ? "#a94f73" : "#dfc2ce";
+
+    for (let i = 0; i < 6; i++) {
+        const inner = i % 2 === 1;
+        const fullAngle = i * Math.PI / 3 + (inner ? Math.PI / 12 : 0);
+        const closedAngle = -0.10 + i * 0.035;
+        const angle = closedAngle + (fullAngle - closedAngle) * opening;
+        ctx.save();
+        ctx.rotate(angle + Math.sin(time * 1.5 + phase + i) * 0.014 * opening);
+        const petalWidth = inner ? 0.78 : 1;
+        const petalLength = inner ? 0.86 : 1;
+        ctx.scale(petalWidth * (0.28 + 0.72 * opening), petalLength * (0.34 + 0.66 * opening));
+
+        const grad = ctx.createLinearGradient(-24, -8, 22, -92);
+        grad.addColorStop(0, shade);
+        grad.addColorStop(0.28, base);
+        grad.addColorStop(0.78, light);
+        grad.addColorStop(1, pink ? "#fff0f3" : "#fffefa");
+        ctx.fillStyle = grad;
+        ctx.globalAlpha = 0.18 + 0.82 * opening;
+        ctx.beginPath();
+        ctx.moveTo(0, 3);
+        // Narrow base, broad middle, recurved pointed tip: a more lily-like trumpet petal.
+        ctx.bezierCurveTo(-9, -12, -31, -37, -24, -65);
+        ctx.bezierCurveTo(-20, -82, -8, -94, 0, -98);
+        ctx.bezierCurveTo(8, -94, 20, -82, 24, -65);
+        ctx.bezierCurveTo(31, -37, 9, -12, 0, 3);
+        ctx.closePath();
+        ctx.fill();
+
+        // Soft rim and several fine veins make the petals read less like flat stars.
+        ctx.globalAlpha = 0.38 + opening * 0.25;
+        ctx.strokeStyle = pink ? "#b96684" : "#d8c2cb";
+        ctx.lineWidth = 1.15;
+        ctx.beginPath();
+        ctx.moveTo(0, -5);
+        ctx.quadraticCurveTo(-4, -45, 0, -88);
+        ctx.moveTo(-2, -15);
+        ctx.quadraticCurveTo(-12, -48, -17, -68);
+        ctx.moveTo(2, -15);
+        ctx.quadraticCurveTo(12, -48, 17, -68);
+        ctx.stroke();
+
+        if (opening > 0.48) {
+            ctx.fillStyle = pink ? "#963f67" : "#c58b9e";
+            ctx.globalAlpha = (opening - 0.38) * (pink ? 0.95 : 0.38);
+            for (let j = 0; j < 11; j++) {
+                const px = (j % 2 === 0 ? -1 : 1) * (5 + (j % 4) * 3.2);
+                const py = -28 - Math.floor(j / 2) * 6.5;
+                ctx.beginPath();
+                ctx.ellipse(px, py, 1.25, 2, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        ctx.restore();
+    }
+
+    ctx.globalAlpha = opening; ctx.fillStyle = pink ? "#f4c4d2" : "#fff0df";
+    ctx.beginPath(); ctx.ellipse(0, -1, 8, 10, 0, 0, Math.PI * 2); ctx.fill();
+    for (let i = 0; i < 6; i++) {
+        const angle = -Math.PI / 2 + (i - 2.5) * 0.19;
+        const length = 23 + (i % 3) * 3;
+        const sx = Math.cos(angle) * length, sy = Math.sin(angle) * length - 4;
+        ctx.strokeStyle = "#d7a14d"; ctx.lineWidth = 2; ctx.globalAlpha = opening;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(sx * 0.55, sy * 0.55, sx, sy); ctx.stroke();
+        ctx.fillStyle = "#98643d"; ctx.beginPath(); ctx.ellipse(sx, sy, 3.1, 5, angle, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+}
+
+// Sunflower: golden ray florets around a textured, dark seed head.
+function drawSunflower(ctx, x, y, scale, bloom, time, phase) {
+    const open = Math.max(0, Math.min(1, bloom));
+    ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(time * 1.05 + phase) * 0.025); ctx.scale(scale, scale);
+    for (let i = 0; i < 18; i++) {
+        ctx.save();
+        const a = i * Math.PI * 2 / 18;
+        ctx.rotate(a * open);
+        ctx.translate(0, -23 * open);
+        ctx.scale(0.35 + 0.65 * open, 0.35 + 0.65 * open);
+        const g = ctx.createLinearGradient(-8, 0, 8, -44);
+        g.addColorStop(0, "#d97920"); g.addColorStop(0.45, "#ffb52e"); g.addColorStop(1, "#ffe58a");
+        ctx.fillStyle = g; ctx.globalAlpha = 0.25 + 0.75 * open;
+        ctx.beginPath(); ctx.ellipse(0, -18, 8, 25, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+    }
+    ctx.globalAlpha = open;
+    const disk = ctx.createRadialGradient(-5, -7, 2, 0, 0, 27);
+    disk.addColorStop(0, "#8b421d"); disk.addColorStop(0.65, "#59301f"); disk.addColorStop(1, "#34201b");
+    ctx.fillStyle = disk; ctx.beginPath(); ctx.arc(0, 0, 27, 0, Math.PI * 2); ctx.fill();
+    for (let i = 0; i < 65; i++) {
+        const a = i * 2.399, r = 4 + Math.sqrt(i) * 2.65;
+        ctx.fillStyle = i % 3 === 0 ? "#d49a45" : "#241b19";
+        ctx.beginPath(); ctx.arc(Math.cos(a) * r, Math.sin(a) * r, 1.15, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+}
+
+// Dahlia: layered, pointed petals in a rich magenta / coral / violet palette.
+function drawDahlia(ctx, x, y, scale, bloom, time, phase, colour = "coral") {
+    const palettes = {
+        coral: ["#a92f67", "#e94f83", "#ffb0bd"],
+        violet: ["#563b9b", "#9475df", "#d9c5ff"],
+        orange: ["#b94724", "#f47b37", "#ffd08a"]
+    };
+    const colours = palettes[colour] || palettes.coral;
+    const open = Math.max(0, Math.min(1, bloom));
+    ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(time * 1.15 + phase) * 0.02); ctx.scale(scale, scale);
+    for (let ring = 0; ring < 3; ring++) {
+        const count = 14 + ring * 4;
+        for (let i = 0; i < count; i++) {
+            ctx.save();
+            const angle = (i / count) * Math.PI * 2 + ring * 0.19;
+            ctx.rotate(angle * open);
+            ctx.translate(0, -ring * 5 * open);
+            const petalScale = (0.35 + 0.65 * open) * (1 - ring * 0.12);
+            ctx.scale(petalScale, petalScale);
+            const g = ctx.createLinearGradient(0, -5, 0, -43);
+            g.addColorStop(0, colours[0]); g.addColorStop(0.55, colours[1]); g.addColorStop(1, colours[2]);
+            ctx.fillStyle = g; ctx.globalAlpha = 0.2 + 0.8 * open;
+            ctx.beginPath(); ctx.moveTo(-5, 0); ctx.quadraticCurveTo(-12, -23, 0, -43); ctx.quadraticCurveTo(12, -23, 5, 0); ctx.closePath(); ctx.fill();
+            ctx.restore();
+        }
+    }
+    ctx.globalAlpha = open; ctx.fillStyle = "#f6c56e"; ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+}
+
+// Blue hydrangea cluster: many tiny four-petal florets form a rounded cloud.
+function drawBlueCluster(ctx, x, y, scale, bloom, time, phase) {
+    const open = Math.max(0, Math.min(1, bloom));
+    ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(time * 1.3 + phase) * 0.025); ctx.scale(scale, scale);
+    const centers = [[0,0],[-24,-10],[23,-12],[-15,-34],[13,-38],[0,-57],[-34,-39],[34,-40],[0,22]];
+    centers.forEach(([cx, cy], k) => {
+        for (let p = 0; p < 4; p++) {
+            ctx.save();
+            const a = p * Math.PI / 2 + k * 0.3;
+            ctx.translate(cx, cy); ctx.rotate(a);
+            ctx.scale(0.25 + open * 0.75, 0.25 + open * 0.75);
+            const shades = ["#3978d5", "#5798ef", "#8bc5ff", "#6b70d8"];
+            ctx.fillStyle = shades[(k + p) % shades.length]; ctx.globalAlpha = 0.25 + 0.75 * open;
+            ctx.beginPath(); ctx.ellipse(0, -6, 5.2, 7.2, 0, 0, Math.PI * 2); ctx.fill();
+            ctx.restore();
+        }
+        ctx.fillStyle = "#f8e8a4"; ctx.globalAlpha = open;
+        ctx.beginPath(); ctx.arc(cx, cy, 2.1, 0, Math.PI * 2); ctx.fill();
+    });
+    ctx.restore();
+}
+
+// Draw one flower according to its species.
+function drawBouquetFlower(ctx, flower, progress, time) {
+    const local = Math.max(0, Math.min(1, (progress - flower.delay) / (1 - flower.delay)));
+    const bloom = easeOutCubic(local);
+    if (flower.type === "lily") {
+        drawLily(ctx, flower.x, flower.y, flower.scale, flower.pink, flower.rotation, bloom, time, flower.phase);
+    } else if (flower.type === "sunflower") {
+        drawSunflower(ctx, flower.x, flower.y, flower.scale, bloom, time, flower.phase);
+    } else if (flower.type === "dahlia") {
+        drawDahlia(ctx, flower.x, flower.y, flower.scale, bloom, time, flower.phase, flower.colour);
+    } else if (flower.type === "blue") {
+        drawBlueCluster(ctx, flower.x, flower.y, flower.scale, bloom, time, flower.phase);
+    }
+}
+
+// Draw the full, colourful mixed bouquet and convert each frame to ASCII.
+function renderAsciiBouquet(progress = 1, time = 0) {
+    const canvas = document.getElementById("flowerCanvas");
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width, height = canvas.height;
+    ctx.clearRect(0, 0, width, height);
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+
+    // A generous, layered arrangement: lilies, sunflower, dahlias and blue hydrangeas.
+    const flowers = [
+        {type:"lily", x:68,  y:222, scale:0.82, pink:false, rotation:-0.22, delay:0.28, phase:0.4},
+        {type:"lily", x:160, y:153, scale:0.91, pink:true,  rotation:-0.12, delay:0.12, phase:1.2},
+        {type:"sunflower", x:280, y:108, scale:1.04, delay:0.02, phase:2.0},
+        {type:"dahlia", x:402, y:155, scale:0.98, colour:"violet", delay:0.19, phase:2.8},
+        {type:"lily", x:492, y:226, scale:0.80, pink:false, rotation:0.22, delay:0.34, phase:3.6},
+        {type:"blue", x:105, y:326, scale:0.82, delay:0.40, phase:4.2},
+        {type:"dahlia", x:270, y:258, scale:0.78, colour:"coral", delay:0.48, phase:4.8},
+        {type:"blue", x:445, y:326, scale:0.82, delay:0.52, phase:5.4},
+        {type:"dahlia", x:188, y:290, scale:0.69, colour:"orange", delay:0.58, phase:6.0},
+        {type:"lily", x:365, y:285, scale:0.70, pink:true, rotation:0.16, delay:0.62, phase:6.6},
+        {type:"dahlia", x:90, y:285, scale:0.62, colour:"coral", delay:0.68, phase:7.2},
+        {type:"lily", x:455, y:270, scale:0.61, pink:true, rotation:-0.18, delay:0.72, phase:7.8},
+        {type:"blue", x:220, y:365, scale:0.62, delay:0.76, phase:8.4},
+        {type:"dahlia", x:340, y:365, scale:0.62, colour:"violet", delay:0.80, phase:9.0}
+    ];
+    // Stems converge into one hand-tied bouquet and sway together.
+    flowers.forEach((flower, i) => {
+        const sway = Math.sin(time * 1.15 + flower.phase) * 5;
+        const baseX = 280 + (i - 4.5) * 5;
+        ctx.beginPath(); ctx.moveTo(flower.x, flower.y + 12);
+        ctx.bezierCurveTo(flower.x + sway * 0.3, 330, baseX + sway, 465, baseX + sway * 0.7, 535);
+        ctx.strokeStyle = i % 3 === 0 ? "#52794a" : "#668b58";
+        ctx.lineWidth = 4.5; ctx.stroke();
+    });
+
+    // Broad leaves with individual wind phases.
+    function drawLeaf(x, y, size, direction, phase) {
+        const sway = Math.sin(time * 1.7 + phase) * 0.16;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(direction + sway);
+        const g = ctx.createLinearGradient(0, -size * 0.35, size, size * 0.2);
+        g.addColorStop(0, "#b2c98e"); g.addColorStop(1, "#426b43"); ctx.fillStyle = g;
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.quadraticCurveTo(size*0.28,-size*0.62,size,-size*0.08); ctx.quadraticCurveTo(size*0.62,size*0.28,0,0); ctx.fill();
+        ctx.strokeStyle = "#d0dca9"; ctx.lineWidth = 1.1; ctx.beginPath(); ctx.moveTo(0,0); ctx.quadraticCurveTo(size*0.48,-size*0.08,size,-size*0.08); ctx.stroke();
+        ctx.restore();
+    }
+    drawLeaf(145,350,90,-0.35,0); drawLeaf(205,405,78,0.18,1);
+    drawLeaf(245,455,70,-0.45,2); drawLeaf(405,350,92,3.45,3);
+    drawLeaf(350,410,78,2.95,4); drawLeaf(310,458,68,3.55,5);
+    drawLeaf(95,430,65,-0.30,6); drawLeaf(470,430,65,3.35,7);
+    drawLeaf(165,475,78,-0.55,8); drawLeaf(395,475,82,3.65,9);
+    drawLeaf(255,510,74,-0.25,10); drawLeaf(325,510,74,3.35,11);
+
+    // Fine filler sprigs add volume between the main flowers.
+    for (let i = 0; i < 13; i++) {
+        const x = 190 + i * 22, sway = Math.sin(time * 1.35 + i) * 4;
+        ctx.beginPath(); ctx.moveTo(280,535); ctx.quadraticCurveTo(x+sway,465,x+sway*1.5,370-(i%3)*15);
+        ctx.strokeStyle = i%2 ? "#6e985f" : "#849c68"; ctx.lineWidth = 2.5; ctx.stroke();
+    }
+
+    // Baby's-breath: airy branching stems with tiny ivory-white blossoms.
+    // These sit behind the focal flowers, like delicate florist filler.
+    const breathSprigs = [
+        {x:105, y:365, dx:-30, dy:-105, phase:0.2},
+        {x:155, y:390, dx:-12, dy:-125, phase:1.1},
+        {x:405, y:385, dx:24, dy:-120, phase:2.0},
+        {x:455, y:365, dx:35, dy:-100, phase:2.8},
+        {x:225, y:420, dx:-25, dy:-85, phase:3.5},
+        {x:340, y:420, dx:28, dy:-90, phase:4.2}
+    ];
+    breathSprigs.forEach((sprig, si) => {
+        const sway = Math.sin(time * 1.25 + sprig.phase) * 3;
+        const sx = sprig.x + sway, sy = sprig.y;
+        const ex = sx + sprig.dx, ey = sy + sprig.dy;
+        ctx.strokeStyle = "#91a77b"; ctx.lineWidth = 1.7;
+        ctx.beginPath(); ctx.moveTo(sx, sy);
+        ctx.quadraticCurveTo(sx + sprig.dx * 0.55, sy + sprig.dy * 0.55, ex, ey);
+        ctx.stroke();
+        for (let b = 0; b < 5; b++) {
+            const t = 0.25 + b * 0.15;
+            const bx = sx + sprig.dx * t + Math.sin(time * 1.5 + si + b) * 2;
+            const by = sy + sprig.dy * t;
+            const spread = (b % 2 ? -1 : 1) * (9 + (b % 3) * 3);
+            ctx.strokeStyle = "#9caf86"; ctx.lineWidth = 1.1;
+            ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + spread, by - 12); ctx.stroke();
+            const fx = bx + spread, fy = by - 13;
+            ctx.fillStyle = "#fffdf8"; ctx.globalAlpha = 0.9;
+            for (let petal = 0; petal < 5; petal++) {
+                const a = petal * Math.PI * 2 / 5;
+                ctx.beginPath();
+                ctx.arc(fx + Math.cos(a) * 3.4, fy + Math.sin(a) * 3.4, 2.8, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.fillStyle = "#e9c879"; ctx.globalAlpha = 1;
+            ctx.beginPath(); ctx.arc(fx, fy, 1.7, 0, Math.PI * 2); ctx.fill();
+        }
+        // A tiny flower cluster at each sprig tip.
+        ctx.fillStyle = "#fffaf5"; ctx.globalAlpha = 0.95;
+        for (let petal = 0; petal < 5; petal++) {
+            const a = petal * Math.PI * 2 / 5;
+            ctx.beginPath();
+            ctx.arc(ex + Math.cos(a) * 3.5, ey + Math.sin(a) * 3.5, 3, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.fillStyle = "#e6c16f"; ctx.beginPath(); ctx.arc(ex, ey, 1.8, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = 1;
+    });
+
+    // Blue filler sprigs: slender stems with tiny periwinkle and cornflower buds.
+    const blueSprigs = [
+        {x:92, y:410, dx:-22, dy:-100, phase:0.5},
+        {x:130, y:425, dx:8, dy:-118, phase:1.7},
+        {x:465, y:420, dx:24, dy:-112, phase:2.6},
+        {x:425, y:430, dx:-8, dy:-96, phase:3.4},
+        {x:250, y:435, dx:-38, dy:-78, phase:4.3},
+        {x:325, y:435, dx:38, dy:-82, phase:5.1}
+    ];
+    blueSprigs.forEach((sprig, si) => {
+        const sway = Math.sin(time * 1.55 + sprig.phase) * 3.5;
+        const sx = sprig.x + sway, sy = sprig.y;
+        ctx.strokeStyle = "#78966c"; ctx.lineWidth = 1.8;
+        ctx.beginPath(); ctx.moveTo(sx, sy);
+        ctx.quadraticCurveTo(sx + sprig.dx * 0.5, sy + sprig.dy * 0.5, sx + sprig.dx, sy + sprig.dy);
+        ctx.stroke();
+        for (let b = 0; b < 4; b++) {
+            const t = 0.28 + b * 0.19;
+            const bx = sx + sprig.dx * t, by = sy + sprig.dy * t;
+            const side = b % 2 ? -1 : 1;
+            ctx.strokeStyle = "#78966c"; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + side * 8, by - 7); ctx.stroke();
+            ctx.fillStyle = b % 2 ? "#6b78d7" : "#70b7f2";
+            ctx.beginPath(); ctx.arc(bx + side * 8, by - 8, 3.4, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = "#a9c9ff";
+            ctx.beginPath(); ctx.arc(bx + side * 8 - 1, by - 9, 1.3, 0, Math.PI * 2); ctx.fill();
+        }
+        // Three tiny blue florets at the tip.
+        for (let f = 0; f < 3; f++) {
+            const fx = sx + sprig.dx + (f - 1) * 5;
+            const fy = sy + sprig.dy - (f % 2) * 5;
+            ctx.fillStyle = ["#4779d5", "#7798f0", "#9bcaff"][f];
+            ctx.beginPath(); ctx.arc(fx, fy, 3.5, 0, Math.PI * 2); ctx.fill();
+        }
+    });
+
+    // Draw flowers above stems and delicate filler.
+    flowers.forEach(flower => drawBouquetFlower(ctx, flower, progress, time));
+
+    // Golden firefly-like sparkles pulse around the bouquet throughout the animation.
+    const sparkles = [
+        [48,155,0.2],[510,145,1.1],[75,300,2.0],[490,305,2.8],
+        [115,485,3.5],[445,485,4.2],[205,70,1.6],[365,75,3.1],
+        [165,255,4.8],[405,255,5.5],[280,35,0.9],[280,390,2.4]
+    ];
+    sparkles.forEach(([x, y, phase], i) => {
+        const pulse = 0.25 + (0.75 * (0.5 + 0.5 * Math.sin(time * 3.1 + phase)));
+        const radius = 2.2 + pulse * 2.1;
+        ctx.save();
+        ctx.globalAlpha = pulse;
+        ctx.translate(x + Math.sin(time * 0.8 + phase) * 3, y + Math.cos(time * 1.1 + phase) * 3);
+        ctx.strokeStyle = i % 3 === 0 ? "#fff0a8" : "#f4cf70";
+        ctx.fillStyle = "#fff6cf";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(-radius * 2, 0); ctx.lineTo(radius * 2, 0); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, -radius * 2); ctx.lineTo(0, radius * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(0, 0, radius * 0.65, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+    });
+
+    // One large vintage-pink paper wrap around the complete arrangement.
+    ctx.fillStyle = "#d99caf"; ctx.beginPath();
+    ctx.moveTo(105,430); ctx.lineTo(455,430); ctx.lineTo(370,625); ctx.lineTo(190,625); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = "#f5dce0"; ctx.beginPath();
+    ctx.moveTo(105,430); ctx.lineTo(190,625); ctx.lineTo(225,625); ctx.lineTo(160,430); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = "#f8e8e7"; ctx.beginPath();
+    ctx.moveTo(455,430); ctx.lineTo(370,625); ctx.lineTo(335,625); ctx.lineTo(400,430); ctx.closePath(); ctx.fill();
+
+    // Ribbon bow.
+    ctx.strokeStyle = "#a75d7d"; ctx.lineWidth = 10; ctx.beginPath();
+    ctx.ellipse(255,485,34,21,-0.35,0,Math.PI*2); ctx.ellipse(305,485,34,21,0.35,0,Math.PI*2); ctx.stroke();
+    ctx.fillStyle = "#a75d7d"; ctx.beginPath(); ctx.ellipse(280,487,18,13,0,0,Math.PI*2); ctx.fill();
+
+    convertToASCII(ctx, width, height);
+}
+
+// Convert each rendered frame to coloured ASCII.
+function convertToASCII(ctx, width, height) {
+    // Moderate sampling keeps the bouquet detailed without freezing the browser.
+    const columns = 132, rows = 150;
+    const pixels = ctx.getImageData(0, 0, width, height).data;
+    const chars = "@%#*+=-:;,.·";
+    const target = document.getElementById("asciiBouquet");
+    let output = "";
+
+    for (let row = 0; row < rows; row++) {
+        let runColor = "", runText = "";
+        for (let col = 0; col < columns; col++) {
+            const x = Math.min(width - 1, Math.floor(col * width / columns));
+            const y = Math.min(height - 1, Math.floor(row * height / rows));
+            const index = (y * width + x) * 4;
+            const r = pixels[index], g = pixels[index + 1], b = pixels[index + 2], a = pixels[index + 3];
+            if (a < 20) {
+                if (runText) output += `<span style="color:${runColor}">${runText}</span>`;
+                runColor = ""; runText = " ";
+                continue;
+            }
+            const brightness = r * 0.299 + g * 0.587 + b * 0.114;
+            const tone = Math.max(0, Math.min(1, (brightness / 255 - 0.06) / 0.94));
+            const charIndex = Math.max(0, Math.min(chars.length - 1, Math.round((1 - tone) * (chars.length - 1))));
+            const ch = chars[charIndex];
+            // Quantized colours allow adjacent characters to share one span.
+            const color = `rgb(${Math.round(r/16)*16},${Math.round(g/16)*16},${Math.round(b/16)*16})`;
+            if (color !== runColor) {
+                if (runText) output += `<span style="color:${runColor}">${runText}</span>`;
+                runColor = color; runText = ch;
+            } else runText += ch;
+        }
+        if (runText) output += `<span style="color:${runColor || 'transparent'}">${runText}</span>`;
+        output += "\n";
+    }
+    target.innerHTML = output;
+}
+
+
+// Sequential blooming, then a continuous, gentle breeze.
+let bouquetAnimationStarted = false;
+function animateBouquet() {
+    if (bouquetAnimationStarted) return;
+    bouquetAnimationStarted = true;
+    const startTime = performance.now();
+    let lastRender = 0;
+    function frame(now) {
+        const elapsed = now - startTime;
+        if (now - lastRender >= 220) {
+            lastRender = now;
+            const progress = Math.min(elapsed / 5200, 1);
+            renderAsciiBouquet(progress, elapsed / 1000);
+        }
+        if (document.getElementById("giftScreen").style.display !== "none") {
+            requestAnimationFrame(frame);
+        }
+    }
+    renderAsciiBouquet(0, 0);
+    requestAnimationFrame(frame);
+}
+</script>
+
+</body>
+</html>
